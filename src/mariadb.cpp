@@ -4,10 +4,12 @@
 
 using std::string;
 
-mariadbcpp::mariadbcpp(const bool setDebug) {
-  if (setDebug) {
-    mysql_debug("d:t:O");
-  }
+mariadbcpp::mariadbcpp(const bool) {
+  mysql_debug("d:t:O");
+  mariadbcpp();
+}
+
+mariadbcpp::mariadbcpp() {
   mysql = mysql_init(0);
 }
 

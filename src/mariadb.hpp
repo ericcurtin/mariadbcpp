@@ -3,7 +3,8 @@
 
 class mariadbcpp {
   public:
-    mariadbcpp(const bool setDebug = false);
+    mariadbcpp(const bool);
+    mariadbcpp();
     ~mariadbcpp();
     bool connect(const char* host,
                  const char* user,
