@@ -30,10 +30,18 @@ int mariadbcpp::query(const char* query) {
   return mysql_real_query(mysql, query, strlen(query));
 }
 
+int mariadbcpp::getErrno() {
+  return mysql_errno(mysql);
+}
+
 string mariadbcpp::getSQLState() {
   return mysql_sqlstate(mysql);
 }
 
 string mariadbcpp::getError() {
   return mysql_error(mysql);
+}
+
+unsigned long mariadbcpp::getAffectedRows() {
+  return mysql_affected_rows(mysql);
 }
