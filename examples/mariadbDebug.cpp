@@ -23,13 +23,13 @@ int main() {
     showError();
   }
 
-  if (mariadbcpp.query("DROP TABLE IF EXISTS debug_example")) {
+  if (mariadbcpp.realQuery("DROP TABLE IF EXISTS debug_example")) {
     showError();
   }
 
-  if (mariadbcpp.query("CREATE TABLE debug_example (id int not null,"
-                       "my_name varchar(50),"
-                       "PRIMARY KEY(id))")) {
+  if (mariadbcpp.realQuery("CREATE TABLE debug_example (id int not null,"
+                           "my_name varchar(50),"
+                           "PRIMARY KEY(id))")) {
     showError();
   }
 

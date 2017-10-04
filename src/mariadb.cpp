@@ -31,11 +31,11 @@ bool mariadbcpp::connect(const char* host,
                             0);
 }
 
-int mariadbcpp::query(const char* query) {
+int mariadbcpp::realQuery(const char* query) {
   return mysql_real_query(mysql, query, strlen(query));
 }
 
-int mariadbcpp::getErrno() {
+unsigned int mariadbcpp::getErrno() {
   return mysql_errno(mysql);
 }
 
