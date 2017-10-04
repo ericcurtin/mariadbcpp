@@ -27,7 +27,8 @@ int main() {
     showError();
   }
 
-  if (mariadbcpp.query("CREATE TABLE affected_rows (id int not null, my_name varchar(50),"
+  if (mariadbcpp.query("CREATE TABLE affected_rows (id int not null,"
+                       "my_name varchar(50),"
                        "PRIMARY KEY(id))")) {
     showError();
   }
