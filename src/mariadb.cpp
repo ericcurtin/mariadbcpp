@@ -4,7 +4,10 @@
 
 using std::string;
 
-mariadbcpp::mariadbcpp() {
+mariadbcpp::mariadbcpp(const bool setDebug) {
+  if (setDebug) {
+    mysql_debug("d:t:O");
+  }
   mysql = mysql_init(0);
 }
 
