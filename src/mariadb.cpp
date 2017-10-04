@@ -1,7 +1,5 @@
 #include "mariadb.hpp"
 
-#include <string.h>
-
 using std::string;
 
 mariadbcpp::mariadbcpp(const bool) {
@@ -31,8 +29,8 @@ bool mariadbcpp::connect(const char* host,
                             0);
 }
 
-int mariadbcpp::realQuery(const char* query) {
-  return mysql_real_query(mysql, query, strlen(query));
+int mariadbcpp::realQuery(const string& query) {
+  return mysql_real_query(mysql, query.c_str(), query.size());
 }
 
 unsigned int mariadbcpp::getErrno() {

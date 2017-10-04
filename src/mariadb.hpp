@@ -10,7 +10,7 @@ class mariadbcpp {
                  const char* user,
                  const char* pass,
                  const char* db);
-    int realQuery(const char* query);
+    int realQuery(const std::string& query);
     unsigned int getErrno();
     std::string getSQLState();
     std::string getError();
