@@ -7,8 +7,7 @@ mariadbcpp::mariadbcpp(const bool) {
   mariadbcpp();
 }
 
-mariadbcpp::mariadbcpp() {
-  mysql = mysql_init(0);
+mariadbcpp::mariadbcpp() : mysql(mysql_init(0)) {
 }
 
 mariadbcpp::~mariadbcpp() {
