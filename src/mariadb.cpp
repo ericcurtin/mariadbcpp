@@ -7,8 +7,7 @@ mariadbcpp::mariadbcpp(const bool) {
   mariadbcpp();
 }
 
-mariadbcpp::mariadbcpp() : mysql(mysql_init(0)) {
-}
+mariadbcpp::mariadbcpp() : mysql(mysql_init(0)) {}
 
 mariadbcpp::~mariadbcpp() {
   mysql_close(mysql);
@@ -18,13 +17,7 @@ bool mariadbcpp::connect(const char* host,
                          const char* user,
                          const char* pass,
                          const char* db) {
-  return mysql_real_connect(mysql,
-                            host,
-                            user,
-                            pass,
-                            db,
-                            0,
-                            "/tmp/mysql.sock",
+  return mysql_real_connect(mysql, host, user, pass, db, 0, "/tmp/mysql.sock",
                             0);
 }
 

@@ -8,13 +8,8 @@ using std::cout;
 mariadbcpp mariadbcpp(true);
 
 void showError() {
-  cout << "Error("
-       << mariadbcpp.getErrno()
-       << ") ["
-       << mariadbcpp.getSQLState()
-       << "] \""
-       << mariadbcpp.getError()
-       << "\"";
+  cout << "Error(" << mariadbcpp.getErrno() << ") [" << mariadbcpp.getSQLState()
+       << "] \"" << mariadbcpp.getError() << "\"";
   exit(-1);
 }
 
@@ -35,4 +30,3 @@ int main() {
 
   return 0;
 }
-

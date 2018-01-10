@@ -8,13 +8,8 @@ using std::cout;
 mariadbcpp mariadbcpp;
 
 void showError() {
-  cout << "Error("
-       << mariadbcpp.getErrno()
-       << ") ["
-       << mariadbcpp.getSQLState()
-       << "] \""
-       << mariadbcpp.getError()
-       << "\"";
+  cout << "Error(" << mariadbcpp.getErrno() << ") [" << mariadbcpp.getSQLState()
+       << "] \"" << mariadbcpp.getError() << "\"";
   exit(-1);
 }
 
@@ -33,55 +28,52 @@ int main() {
     showError();
   }
 
-  if (mariadbcpp.realQuery("INSERT INTO affected_rows VALUES (1, \"First value\"),"
-                       "(2, \"Second value\")")) {
+  if (mariadbcpp.realQuery(
+          "INSERT INTO affected_rows VALUES (1, \"First value\"),"
+          "(2, \"Second value\")")) {
     showError();
   }
 
-  if (mariadbcpp.realQuery("INSERT INTO affected_rows VALUES (1, \"First value\"),"
-                       "(2, \"Second value\")")) {
+  if (mariadbcpp.realQuery(
+          "INSERT INTO affected_rows VALUES (1, \"First value\"),"
+          "(2, \"Second value\")")) {
     showError();
   }
-  cout << "Affected_rows after INSERT: "
-       << mariadbcpp.getAffectedRows()
+  cout << "Affected_rows after INSERT: " << mariadbcpp.getAffectedRows()
        << "\n";
 
-  if (mariadbcpp.realQuery("REPLACE INTO affected_rows VALUES (1, \"First value\"),"
-                       "(2, \"Second value\")")) {
+  if (mariadbcpp.realQuery(
+          "REPLACE INTO affected_rows VALUES (1, \"First value\"),"
+          "(2, \"Second value\")")) {
     showError();
   }
-  cout << "Affected_rows after REPLACE: "
-       << mariadbcpp.getAffectedRows()
+  cout << "Affected_rows after REPLACE: " << mariadbcpp.getAffectedRows()
        << "\n";
 
   if (mariadbcpp.realQuery("UPDATE affected_rows SET id=1 WHERE id=1")) {
     showError();
   }
-  cout << "Affected_rows after UPDATE: "
-       << mariadbcpp.getAffectedRows()
+  cout << "Affected_rows after UPDATE: " << mariadbcpp.getAffectedRows()
        << "\n";
 
-  if (mariadbcpp.realQuery("UPDATE affected_rows SET my_name=\"Monty\" WHERE id=1")) {
+  if (mariadbcpp.realQuery(
+          "UPDATE affected_rows SET my_name=\"Monty\" WHERE id=1")) {
     showError();
   }
-  cout << "Affected_rows after UPDATE: "
-       << mariadbcpp.getAffectedRows()
+  cout << "Affected_rows after UPDATE: " << mariadbcpp.getAffectedRows()
        << "\n";
 
   if (mariadbcpp.realQuery("SELECT id, my_name FROM affected_rows")) {
     showError();
   }
   cout << "Affected_rows after SELECT and storing result set: "
-       << mariadbcpp.getAffectedRows()
-       << "\n";
+       << mariadbcpp.getAffectedRows() << "\n";
 
   if (mariadbcpp.realQuery("DELETE FROM affected_rows")) {
     showError();
   }
-  cout << "Affected_rows after DELETE: "
-       << mariadbcpp.getAffectedRows()
+  cout << "Affected_rows after DELETE: " << mariadbcpp.getAffectedRows()
        << "\n";
 
   return 0;
 }
-
