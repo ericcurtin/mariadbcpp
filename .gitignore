@@ -34,3 +34,9 @@
 # bin folder
 bin
 
+# cmake stuff
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+
